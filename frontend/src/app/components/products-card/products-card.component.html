@@ -1,0 +1,8 @@
+<div class="box">
+      {{ product.name }}
+      <br />
+      Price: {{ product.price | currency:"ILS" }}
+      <br />
+    <hr />
+   <a (click)="openDialog(product)"> <img [src]="imageUrl + product.image"/></a>
+  </div>

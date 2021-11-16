@@ -1,0 +1,11 @@
+.card{
+    max-width: 35%;
+    float: left;
+    display: inline-block;
+    margin: 2%;
+}
+.cards{
+    position: fixed;
+    left: 10%;
+    top: 18%;
+}

@@ -1,0 +1,16 @@
+h1{
+  display: flex;
+  justify-content: space-around;
+  font-family: cursive;
+  margin: 23px ; 
+  font-size: 45px;
+}
+  
+  img {
+    height: 100%;
+    left: 10px;
+    position: fixed;
+    height: 10%;
+    z-index: 10;
+    margin-top: -14px
+  }

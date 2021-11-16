@@ -1,0 +1,11 @@
+div{
+    width: 270px;
+   height: 270px;
+   background-color: #cbddda;
+}
+img{
+    width: 240px;
+    max-height: 210px;
+    margin: auto;
+    display: flex;
+}

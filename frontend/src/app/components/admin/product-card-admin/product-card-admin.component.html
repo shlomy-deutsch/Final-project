@@ -1,0 +1,8 @@
+<div class="box">
+    {{ product.name }}
+    <br />
+    Price: {{ product.price }}
+    <br />
+  <hr />
+ <a (click)="add(product)"> <img [src]="imageUrl + product.image"/></a>
+</div>
