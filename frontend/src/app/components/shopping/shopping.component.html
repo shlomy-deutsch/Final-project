@@ -8,11 +8,11 @@
   <mat-form-field appearance="outline" class="search1" >
     <mat-label>חפש מוצר</mat-label>
     <input matInput placeholder="חפש מוצר" name="searchme" required [(ngModel)]="searchme">
-      
-    
-    <button class="srcbtn" mat-button type="submit"><mat-icon matSuffix>search</mat-icon></button>
+       <button class="srcbtn" mat-button type="submit"><mat-icon matSuffix>search</mat-icon></button>
   </mat-form-field>
 </form>
+<span>hello {{username}}</span>
+<button mat-button (click)="logout()">logout</button>
 </div>
       <mat-tab-group (focusChange)="getproducts($event)" [(selectedIndex)]=selected>
       <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.category_Name" [id]="tab.category_ID">

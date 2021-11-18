@@ -62,13 +62,15 @@ export class HomeComponent implements OnInit{
       const myFormData = LoginModel.convertToFormData(this.auth);
       this.auth = await this.http.post<LoginModel>("http://localhost:3000/api/auth/login/", myFormData).toPromise();
       this.open = this.auth.open;
-      store.dispatch(setAuth(this.auth))
       
         if(this.open == 1|| this.open == 2){
           try {
-            this.date = await this.http
+            this.auth.date = await this.http
               .get<any>("http://localhost:3000/api/auth/date/" +this.auth.castumer_ID + "/")
-              .toPromise();      
+              .toPromise();  
+              if(this.open ==1){this.myRouter.navigateByUrl("/shopping")}
+              store.dispatch(setAuth(this.auth))
+    
           } catch (err) {
             console.log(err);
           }

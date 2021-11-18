@@ -31,7 +31,7 @@
       <br>
 
         <mat-card-title>About Us</mat-card-title>
-        <mat-card-subtitle>היי, אנחנו החברה הטובה ביותר לקניות אונליין, יותר זול מרמי לוית יותר מהיר משופרסך אונליין, ויותר כשר כשר מישיר למהדריןת אז מה יותר טוב??</mat-card-subtitle>
+        <mat-card-subtitle style="direction: rtl;">היי, אנחנו החברה הטובה ביותר לקניות אונליין, יותר זול מרמי לוי, יותר מהיר משופרסל אונליין ויותר כשר מישיר למהדרין, אז מה יותר טוב??</mat-card-subtitle>
         
       </mat-card>
     </div>
@@ -42,9 +42,9 @@
             <br>
             <mat-card-subtitle>מספר המוצרים הזמינים לקניה: {{products}}</mat-card-subtitle>
             <br>
-            <mat-card-subtitle *ngIf="open===1">אתה באמצע קניה מתאריך {{date.slice(0, 10)}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="open===1">אתה באמצע קניה מתאריך {{auth.date.slice(0, 10)}}</mat-card-subtitle>
             
-            <mat-card-subtitle *ngIf="open===2">קנייתך האחרונה בוצעה בתאריך {{date.slice(0, 10)}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="open===2">קנייתך האחרונה בוצעה בתאריך {{auth.date.slice(0, 10)}}</mat-card-subtitle>
             
             <button mat-button  *ngIf="open===0" (click)="newshop()"> להתחלת קניה</button>
           

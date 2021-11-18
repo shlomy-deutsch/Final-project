@@ -6,6 +6,7 @@ class LoginModel {
   public city: any;
   public street: any;
   public token: string ="";
+  public date: string =""
   public admin:boolean|number|any
   
   public static convertToFormData(product: LoginModel): FormData {
