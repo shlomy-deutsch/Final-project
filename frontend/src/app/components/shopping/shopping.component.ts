@@ -104,7 +104,6 @@ export class ShoppingComponent implements OnInit {
     store.dispatch(setAuth(null))
     localStorage.removeItem("user");
     localStorage.removeItem("cart")
-
   }
 }
 

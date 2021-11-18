@@ -76,13 +76,6 @@ export function productAddedAction(product: PostProductModel): ProductAction {
     return { type: ProductActionType.productAdded, payload: product };
 }
 
-// export function productUpdatedAction(product: ProductModel): ProductAction {
-//     return { type: ProductActionType.productUpdated, payload: product };
-// }
-
-// export function productDeletedAction(id: number): ProductAction {
-//     return { type: ProductActionType.productDeleted, payload: id };
-// }
 
 // Products Reducer:
 export function productsReducer(currentState: ProductsState = new ProductsState(), action: ProductAction): ProductsState {
@@ -96,20 +89,18 @@ export function productsReducer(currentState: ProductsState = new ProductsState(
            
                     newState.auth = action.payload;
                     
-                    // // Demo
                     if (newState.auth?.admin === 1) {
                         newState.auth.admin = true;
                     }
         
                     localStorage.setItem("user", JSON.stringify(newState.auth));
                     break;
-                // case AuthActionType.UserLoggedOut:
-                //     newState.user = null;
-                //     localStorage.removeItem("user");
-                //     break;
+             
     
             case ProductActionType.setTotal: // payload is all products (ProductModel[])
             newState.total = action.payload;
+            localStorage.setItem("total", JSON.stringify(newState.total));
+
             break;
             case ProductActionType.setProducts: // payload is all products (ProductModel[])
             newState.products = action.payload;

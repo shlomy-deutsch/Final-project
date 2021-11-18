@@ -43,7 +43,7 @@
             <mat-card-subtitle>מספר המוצרים הזמינים לקניה: {{products}}</mat-card-subtitle>
             <br>
             <mat-card-subtitle *ngIf="open===1">אתה באמצע קניה מתאריך {{auth.date.slice(0, 10)}}</mat-card-subtitle>
-            
+            <p *ngIf="open===1">סכום הקניה כעת הוא {{total|currency:"ILS"}}</p>
             <mat-card-subtitle *ngIf="open===2">קנייתך האחרונה בוצעה בתאריך {{auth.date.slice(0, 10)}}</mat-card-subtitle>
             
             <button mat-button  *ngIf="open===0" (click)="newshop()"> להתחלת קניה</button>

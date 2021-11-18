@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import ProductModel from '../../models/product.model';
 import ProductModel1 from '../../models/category.model';
-
+import { setAuth, setCart_ID } from '../../redux/redux.component';
 import { Inject } from '@angular/core';
 import {
   MatDialog,
@@ -19,6 +19,7 @@ import { Unsubscribe } from 'redux';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  public username:string = store.getState().productsState.auth.username
   public updating:number = 0
   public products?: ProductModel[];
   public categories: [] | any;
@@ -32,7 +33,7 @@ export class AdminComponent implements OnInit {
   public priceControl: FormControl
   public categoryControl: FormControl
   public imageControl: FormControl
-  public showFiller = false;
+  public showFiller = true;
   private unsubscribeMe: Unsubscribe|any;
   public id : number|any;
   public selected : number |any
@@ -60,17 +61,16 @@ export class AdminComponent implements OnInit {
   setval(){
     this.showFiller = true
     this.updating = 1
-    const name =  store.getState().productsState.product.name
+    const name = store.getState().productsState.product.name
     this.nameControl.setValue(name);
-    const price =  store.getState().productsState.product.price
+    const price = store.getState().productsState.product.price
     this.priceControl.setValue(price);
-    const category =  store.getState().productsState.product.category_ID
+    const category = store.getState().productsState.product.category_ID
     this.categoryControl.setValue(category);
   }
 
   
   async ngOnInit() {
-    
     this.unsubscribeMe = store.subscribe(async () => {
      this.updating = await store.getState().productsState.product.price
       const name =  store.getState().productsState.product.name
@@ -121,10 +121,6 @@ export class AdminComponent implements OnInit {
       const add = await this.http.put<ProductModel>('http://localhost:3000/api/products/'+store.getState().productsState.product.id+"/", myFormData).toPromise();
     this.getproducts(this.product.category_ID);
     this.selected = this.product.category_ID-1;
-    // this.nameControl.reset();
-    // this.priceControl.reset()
-    // this.categoryControl.reset()
-    // this.imageControl.reset()
     this.updating =0 
 
     } catch (err) {
@@ -149,6 +145,12 @@ export class AdminComponent implements OnInit {
     } catch (err) {
       console.log(err);
     }
+  }
+  public logout(){
+    this.myRouter.navigateByUrl("/home")
+    store.dispatch(setAuth(null))
+    localStorage.removeItem("user");
+    localStorage.removeItem("cart")
   }
 }
 
@@ -195,5 +197,5 @@ export class DialogOverviewExampleDialog implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+ 
 }

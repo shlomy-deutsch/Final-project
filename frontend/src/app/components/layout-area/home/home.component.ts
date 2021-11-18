@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit{
   public products: number|any
   public orders: number =0
   public auth?: LoginModel[] |any = [];
-  
+  public total:number = 0
 
   
   constructor(
@@ -32,7 +32,10 @@ export class HomeComponent implements OnInit{
     ) {}
 
    async ngOnInit() {
-
+    const total = localStorage.getItem("total");
+    if (total) {
+        this.total = JSON.parse(total);
+    }
      try{this.products = await this.http.get<any>("http://localhost:3000/api/auth/products").toPromise();}
      catch(err){console.log(err);
      }
@@ -62,7 +65,10 @@ export class HomeComponent implements OnInit{
       const myFormData = LoginModel.convertToFormData(this.auth);
       this.auth = await this.http.post<LoginModel>("http://localhost:3000/api/auth/login/", myFormData).toPromise();
       this.open = this.auth.open;
-      
+      if(this.auth.admin === 1||this.auth.admin === true){
+        store.dispatch(setAuth(this.auth))
+        this.myRouter.navigateByUrl("/admin");
+    }
         if(this.open == 1|| this.open == 2){
           try {
             this.auth.date = await this.http
@@ -70,15 +76,10 @@ export class HomeComponent implements OnInit{
               .toPromise();  
               if(this.open ==1){this.myRouter.navigateByUrl("/shopping")}
               store.dispatch(setAuth(this.auth))
-    
           } catch (err) {
             console.log(err);
           }
-        
-        }
-        if(this.auth.admin === 1||this.auth.admin === true){
-          this.myRouter.navigateByUrl("/admin");
-      }
+        } 
     } catch (err:any) {
 			this.notify.error("שגיאה בקוד או בשם משתמש");
      
