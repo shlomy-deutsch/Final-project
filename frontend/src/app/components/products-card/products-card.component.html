@@ -1,0 +1,59 @@
+<!-- <div class="box">
+      {{ product.name }}
+      <br />
+      Price: {{ product.price | currency:"ILS" }}
+      <br />
+    <hr />
+   <a (click)="openDialog(product)"> <img [src]="imageUrl + product.image"/></a>
+   <p>
+    <button mat-button color="primary" (click)="addme(product,count)"><mat-icon>add_shopping_cart</mat-icon></button>
+    <button mat-button color="blue" (click)="plus()">
+      <span class="material-icons">
+        add
+        </span>    
+      </button>
+    <input type="number" [defaultValue]="count" min="1">
+      <button mat-button color="blue" (click)="minus()">
+        <span class="material-icons">
+          remove
+          </span>
+
+      </button>
+</p>
+  </div> -->
+  <div class="container"></div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{product.price| currency:"ILS"}}</mat-card-subtitle>
+    </mat-card-header>
+    <a (click)="openDialog(product)"> <img [src]="imageUrl + product.image"/></a>
+    <mat-card-content>
+      <!-- <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p> -->
+    </mat-card-content>
+    <mat-card-actions>
+      <p class="tools">
+        <!-- <button mat-icon-button color="primary" aria-label="Example icon button with a home icon"> -->
+
+        <button mat-icon-button color="primary" (click)="addme(product,count)" id="btn"><mat-icon>add_shopping_cart</mat-icon></button>
+        <button mat-icon-button color="blue" (click)="plus()" style="margin-left: 18px" id="btn">
+          <span class="material-icons">
+            add
+            </span>    
+          </button>
+        <input type="number" [defaultValue]="count" min="1" style="margin-left: 5px;">
+          <button mat-icon-button color="blue" (click)="minus()" id="btn" style="margin-left: 7px;">
+            <span class="material-icons">
+              remove
+              </span>
+    
+          </button>
+    </p>
+    </mat-card-actions>
+  </mat-card>
+  

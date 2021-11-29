@@ -1,0 +1,26 @@
+div{
+    width: 270px;
+   height: 270px;
+   background-color: #cbddda;
+
+}
+/* img{
+    width: 240px;
+    max-height: 210px;
+    margin: auto;
+    display: flex;
+} */
+img{
+    /* width: 100px;
+    max-height: 100px; */
+    margin: auto;
+    display: flex;
+    max-width: -webkit-fill-available;
+} 
+.example-card {
+    max-width: 200px;
+    float: left;
+    margin: 30px;
+    height: 314px;
+    background: none;
+  }
