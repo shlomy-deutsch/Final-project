@@ -9,3 +9,8 @@
       max-width: 70%;
       margin: auto;
   }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
