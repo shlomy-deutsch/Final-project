@@ -6,12 +6,16 @@
         <mat-form-field appearance="fill" >
           <mat-label>מספר זהות</mat-label>
           <input matInput type="number" placeholder="מספר זהות" name="castumer_ID" [formControl]="id" [(ngModel)]="auth.castumer_ID" >
+          <span *ngIf="id.invalid && id.touched">ת.ז. 8 או 9 ספרות בלבד</span>
+
         </mat-form-field>
 
         <br>
         <mat-form-field appearance="fill" >
             <mat-label>אימייל</mat-label>
             <input matInput type="email" placeholder="אימייל" required name="username" [formControl]="username" [(ngModel)]="auth.username">
+            <span *ngIf="username.invalid && username.touched">כתובת האימייל לא חוקית</span>
+
           </mat-form-field>
           <br>
         <mat-form-field appearance="fill" >

@@ -48,7 +48,7 @@ export class OrderComponent implements OnInit {
     private renderer: Renderer2
   ) {
     this.dateControl = new FormControl(null, Validators.required);
-    this.creditControl = new FormControl(null, [Validators.min(100000000), Validators.required]);
+    this.creditControl = new FormControl(null, [Validators.min(100000000),Validators.max(999999999999), Validators.required]);
     this.cityControl = new FormControl(null, Validators.required);
     this.streetControl = new FormControl(null, Validators.required);
 

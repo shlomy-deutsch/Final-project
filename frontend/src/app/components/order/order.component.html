@@ -101,6 +101,8 @@
             [(ngModel)]="senddata.credit"
             [formControl]="creditControl"
           />
+          <span *ngIf="creditControl.invalid && creditControl.touched">כ. אשראי בין 9 ל12 ספרות בלבד</span>
+
         </mat-form-field>
       </div>
     </div>
